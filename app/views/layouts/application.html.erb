@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stopify</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+  <body>
+    <header>
+    <h1>Stopify</h1>
+    <div class="sidebar">
+      <%if logged_in?%>
+        <h2>Hey <%=current_user.email%>!</h2>
+        <form action="<%=session_url%>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <%=auth_token%>
+          <input type="submit" value="Log Out">
+        </form>
+      <%end%>
+      </div>
+    </header>
+    <%= yield %>
+  </body>
+</html>

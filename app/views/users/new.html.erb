@@ -1,0 +1,8 @@
+<%=flash.now[:errors]%>
+<form action="<%= users_url %>" method="POST">
+    <%= auth_token%>
+    <input type="text" name="user[email]">
+    <input type="password" name="user[password]">
+    <input type="submit" value="Sign Up!">
+
+</form>

@@ -1,0 +1,8 @@
+<%= flash.now[:errors]%>
+<h1> Log In!</h1>
+<form action="<%= session_url%>" method="POST">
+    <%= auth_token%>
+    <input type="text" name="user[email]">
+    <input type="password" name="user[password]">
+    <input type="submit" value="Log In!">
+</form>
